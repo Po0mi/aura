@@ -18,28 +18,6 @@
     }
   }
 
-  @media (max-width: 768px) {
-    .cta-final-container {
-      padding: 5rem 1.5rem;
-      border-radius: 18px;
-    }
-
-    .cta-final-heading {
-      font-size: clamp(2.5rem, 12vw, 4.5rem);
-    }
-
-    .cta-final-sub {
-      font-size: 0.92rem;
-    }
-
-    .cta-final-btn {
-      padding: 0.95rem 2rem;
-      font-size: 0.78rem;
-      width: 100%;
-      text-align: center;
-    }
-  }
-
   .cta-final-content {
     display: flex;
     flex-direction: column;
@@ -55,7 +33,7 @@
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: oklch(0.85 0.03 90 / 0.45);
+    color: color-mix(in oklch, var(--cream) 45%, transparent);
     display: block;
   }
 
@@ -64,7 +42,7 @@
     font-size: clamp(3rem, 6vw, 6rem);
     font-weight: 600;
     line-height: 1.0;
-    color: oklch(0.97 0.01 90);
+    color: var(--background);
     margin: 0;
   }
 
@@ -73,7 +51,7 @@
     font-size: clamp(0.95rem, 1.1vw, 1.1rem);
     font-weight: 300;
     line-height: 1.7;
-    color: oklch(0.85 0.03 90 / 0.55);
+    color: color-mix(in oklch, var(--cream) 55%, transparent);
     margin: 0;
     max-width: 46ch;
   }
@@ -101,7 +79,7 @@
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px oklch(0.86 0.12 92 / 0.4);
+      box-shadow: 0 8px 28px color-mix(in oklch, var(--primary) 40%, transparent);
     }
   }
 
@@ -109,6 +87,29 @@
     font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 300;
-    color: oklch(0.85 0.03 90 / 0.35);
+    color: color-mix(in oklch, var(--cream) 35%, transparent);
+  }
+
+  // ── Mobile ───────────────────────────────────────────────
+  @media (max-width: 768px) {
+    .cta-final-container {
+      padding: 5rem 1.5rem;
+      border-radius: 18px;
+    }
+
+    .cta-final-heading {
+      font-size: clamp(2.5rem, 12vw, 4.5rem);
+    }
+
+    .cta-final-sub {
+      font-size: 0.92rem;
+    }
+
+    .cta-final-btn {
+      padding: 0.95rem 2rem;
+      font-size: 0.78rem;
+      width: 100%;
+      text-align: center;
+    }
   }
 }

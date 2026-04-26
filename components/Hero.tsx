@@ -1,13 +1,19 @@
 "use client";
 import Image from "next/image";
 import "./Hero.scss";
+import { useHeroAnimation } from "@/hooks/useHeroAnimation";
 
 const Hero = () => {
+  const { ref } = useHeroAnimation();
+
   return (
     <section className="hero" id="hero">
-      <div className="hero-container">
+      <div className="hero-container" ref={ref}>
+        <span className="hero-audience">
+          For women tired of guessing, performing, or feeling invisible.
+        </span>
         <h1 className="hero-title">
-          Be the woman he can't
+          Be the woman he can&apos;t
           <span className="forget-highlight">
             forget.
             <svg
@@ -22,14 +28,16 @@ const Hero = () => {
         </h1>
         <p className="hero-subtitle">
           Stop overthinking your dates — start understanding what actually
-          creates attraction and why effort alone isn’t what makes him stay
+          creates attraction and why effort alone isn&apos;t what makes him stay
           interested.
         </p>
         <div className="hero-cta">
           <a href="#pricing" className="primary-btn">
-            Unlock the Guide
+            Get Instant Access
           </a>
-          <span className="cta-meta">Instant download · 78 pages</span>
+          <span className="cta-meta">
+            Instant download • 78 pages • No fluff, just clarity
+          </span>
         </div>
         <div className="hero-image-wrapper">
           <Image

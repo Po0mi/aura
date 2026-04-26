@@ -1,15 +1,30 @@
 "use client";
 import "./theQuietTruth.scss";
+import { useQuietTruthAnimation } from "@/hooks/useQuietTruthAnimation";
 
 const TheQuietTruth = () => {
+  const { ref } = useQuietTruthAnimation();
+
   return (
     <section className="truth" id="truth">
-      <div className="truth-container">
+      <div className="truth-container" ref={ref}>
 
         <div className="truth-left">
           <span className="truth-eyebrow">The quiet truth</span>
           <h2 className="truth-heading">
-            You did everything right. And still walked home unsure.
+            You did{" "}
+            <span className="truth-underline">
+              everything right.
+              <svg
+                className="truth-line"
+                viewBox="0 0 400 18"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M3,13 C55,6 115,17 185,9 C245,3 315,15 397,11" />
+              </svg>
+            </span>
+            {" "}And still walked home unsure.
           </h2>
         </div>
 

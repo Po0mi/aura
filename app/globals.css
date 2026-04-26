@@ -1,4 +1,6 @@
 /* App.css - Minimal reset */
+
+/* Font Faces */
 @font-face {
   font-family: "Switzer";
   src: url("/fonts/Switzer-Regular.otf") format("opentype");
@@ -10,21 +12,30 @@
 @font-face {
   font-family: "Boska";
   src: url("/fonts/Boska-Medium.otf") format("opentype");
-  font-weight: 500; /* Medium weight */
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
-* {
+
+/* Reset */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+html {
   overflow-x: hidden;
-  width: 100%;
-  font-family: var(--font-body);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   background-color: var(--background);
+  font-family: "Switzer", sans-serif; /* Optional: set default font */
 }
 
 main {

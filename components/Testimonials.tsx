@@ -1,4 +1,7 @@
+"use client";
+import Image from "next/image";
 import "./Testimonials.scss";
+import { useInsideAnimation } from "@/hooks/useInsideAnimation";
 
 const chapters = [
   {
@@ -33,38 +36,58 @@ const chapters = [
   },
 ];
 
-const WhatIsInside = () => (
-  <section className="inside" id="inside">
-    <div className="inside-container">
+const WhatIsInside = () => {
+  const { ref } = useInsideAnimation();
 
-      <header className="inside-header">
-        <span className="inside-eyebrow">78 pages · 6 chapters</span>
-        <h2 className="inside-title">What&rsquo;s inside.</h2>
-        <p className="inside-subtitle">
-          Each chapter targets a specific pattern — the ones that feel normal,
-          but quietly work against you.
-        </p>
-      </header>
-
-      <div className="inside-grid">
-        {chapters.map((ch) => (
-          <div key={ch.number} className="inside-item">
-            <span className="item-num">{ch.number}</span>
-            <div className="item-body">
-              <strong className="item-title">{ch.title}</strong>
-              <p className="item-desc">{ch.desc}</p>
-            </div>
+  return (
+    <section className="inside" id="inside">
+      <div className="inside-container" ref={ref}>
+        <header className="inside-header">
+          <div className="inside-header-left">
+            <span className="inside-eyebrow">78 pages · 6 chapters</span>
+            <h2 className="inside-title">What&rsquo;s inside.</h2>
           </div>
-        ))}
-      </div>
+          <p className="inside-subtitle">
+            Each chapter targets a specific pattern — the ones that feel normal,
+            but quietly work against you.
+          </p>
+        </header>
 
-      <div className="inside-cta">
-        <a href="#pricing" className="inside-btn">Get Instant Access — $24</a>
-        <span className="inside-note">Instant download · PDF & ePub · Read anywhere</span>
-      </div>
+        <div className="inside-body">
+          <div className="inside-image-wrap">
+            <Image
+              src="/images/book.jpg"
+              alt=""
+              width={600}
+              height={800}
+              className="inside-image"
+            />
+          </div>
 
-    </div>
-  </section>
-);
+          <div className="inside-list">
+            {chapters.map((ch) => (
+              <div key={ch.number} className="inside-item">
+                <span className="item-num">{ch.number}</span>
+                <div className="item-body">
+                  <strong className="item-title">{ch.title}</strong>
+                  <p className="item-desc">{ch.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="inside-cta">
+          <a href="#pricing" className="inside-btn">
+            Get Instant Access — $24
+          </a>
+          <span className="inside-note">
+            Instant download · PDF &amp; ePub · Read anywhere
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default WhatIsInside;

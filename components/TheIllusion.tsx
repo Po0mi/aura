@@ -1,4 +1,6 @@
+"use client";
 import "./TheIllusion.scss";
+import { useIllusionAnimation } from "@/hooks/useIllusionAnimation";
 
 const items = [
   {
@@ -23,44 +25,44 @@ const items = [
   },
 ];
 
-const TheIllusion = () => (
-  <section className="illusion" id="illusion">
-    <div className="illusion-container">
+const TheIllusion = () => {
+  const { ref } = useIllusionAnimation();
 
-      <header className="illusion-header">
-        <span className="illusion-eyebrow">Common misconceptions</span>
-        <h2 className="illusion-title">The Illusion</h2>
-        <p className="illusion-subtitle">
-          The beliefs that feel completely logical — and quietly work against you.
-        </p>
-      </header>
+  return (
+    <section className="illusion" id="illusion">
+      <div className="illusion-container" ref={ref}>
 
-      <div className="illusion-table">
-        <div className="illusion-col-labels" aria-hidden="true">
-          <span>The belief</span>
-          <span>The reality</span>
+        <header className="illusion-header">
+          <span className="illusion-eyebrow">Common misconceptions</span>
+          <h2 className="illusion-title">The Illusion</h2>
+          <p className="illusion-subtitle">
+            The beliefs that feel completely logical — and quietly work against you.
+          </p>
+        </header>
+
+        <div className="illusion-list">
+          {items.map((item) => (
+            <div key={item.number} className="illusion-item">
+              <span className="item-num">{item.number}</span>
+              <blockquote className="item-belief">
+                &ldquo;{item.belief}&rdquo;
+              </blockquote>
+              <div className="item-truth-wrap">
+                <div className="item-dash" aria-hidden="true" />
+                <p className="item-truth">{item.truth}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {items.map((item) => (
-          <div key={item.number} className="illusion-row">
-            <div className="row-belief">
-              <blockquote>&ldquo;{item.belief}&rdquo;</blockquote>
-            </div>
-            <div className="row-truth">
-              <span className="row-num">{item.number}</span>
-              <p>{item.truth}</p>
-            </div>
-          </div>
-        ))}
+        <footer className="illusion-footer">
+          You were never lacking effort.{" "}
+          <em>You were just following rules that don&rsquo;t create attraction.</em>
+        </footer>
+
       </div>
-
-      <footer className="illusion-footer">
-        You were never lacking effort.{" "}
-        <em>You were just following rules that don&rsquo;t create attraction.</em>
-      </footer>
-
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default TheIllusion;

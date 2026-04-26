@@ -1,4 +1,6 @@
+"use client";
 import "./Faq.scss";
+import { useFaqAnimation } from "@/hooks/useFaqAnimation";
 
 const faqs = [
   {
@@ -27,31 +29,35 @@ const faqs = [
   },
 ];
 
-const Faq = () => (
-  <section className="faq" id="faq">
-    <div className="faq-container">
+const Faq = () => {
+  const { ref } = useFaqAnimation();
 
-      <header className="faq-header">
-        <span className="faq-eyebrow">Common questions</span>
-        <h2 className="faq-title">FAQ</h2>
-      </header>
+  return (
+    <section className="faq" id="faq">
+      <div className="faq-container" ref={ref}>
 
-      <div className="faq-list">
-        {faqs.map((item, i) => (
-          <details key={i} className="faq-item">
-            <summary className="faq-question">
-              <span>{item.q}</span>
-              <svg className="faq-icon" viewBox="0 0 16 16" aria-hidden="true">
-                <path d="M4 6 L8 10 L12 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </summary>
-            <p className="faq-answer">{item.a}</p>
-          </details>
-        ))}
+        <header className="faq-header">
+          <span className="faq-eyebrow">Common questions</span>
+          <h2 className="faq-title">FAQ</h2>
+        </header>
+
+        <div className="faq-list">
+          {faqs.map((item, i) => (
+            <details key={i} className="faq-item">
+              <summary className="faq-question">
+                <span>{item.q}</span>
+                <svg className="faq-icon" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M4 6 L8 10 L12 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </summary>
+              <p className="faq-answer">{item.a}</p>
+            </details>
+          ))}
+        </div>
+
       </div>
-
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Faq;

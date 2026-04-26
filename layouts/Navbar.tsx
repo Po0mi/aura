@@ -62,10 +62,11 @@ export interface NavbarProps {
  */
 const Navbar: React.FC<NavbarProps> = ({
   links = [
-    { id: "truth",   label: "The Book", href: "#truth"   },
-    { id: "inside",  label: "Inside",   href: "#inside"  },
-    { id: "pricing", label: "Pricing",  href: "#pricing" },
-    { id: "faq",     label: "FAQ",      href: "#faq"     },
+    { id: "truth", label: "The Book", href: "#truth" },
+    { id: "illusion", label: "illusion", href: "#illusion" },
+    { id: "inside", label: "Inside", href: "#inside" },
+    { id: "pricing", label: "Pricing", href: "#pricing" },
+    { id: "faq", label: "FAQ", href: "#faq" },
   ],
   logoText = "Understood",
 }) => {
