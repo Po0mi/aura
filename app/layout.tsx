@@ -80,10 +80,6 @@ export default function RootLayout({
       <body className="font-sans">
         <Navbar />
         <main id="main-content">{children}</main>
-        {/* Skip link for accessibility (hidden visually but available to screen readers) */}
-        <a href="#main-content" className="sr-only focus:not-sr-only">
-          Skip to main content
-        </a>
       </body>
     </html>
   );
