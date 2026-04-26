@@ -1,0 +1,56 @@
+.marquee-strip {
+  width: 100%;
+  background-color: var(--background);
+  padding: 1.25rem 3rem;
+  display: flex;
+  align-items: center;
+  max-width: 1800px;
+  margin: 0 auto;
+  .marquee-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem 1.5rem;
+
+    .marquee-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem 0.5rem;
+      justify-items: start;
+    }
+  }
+
+  .marquee-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--text-muted);
+    opacity: 0.55;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      fill: none;
+      stroke: var(--text-muted);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    span {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+}

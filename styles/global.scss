@@ -1,0 +1,23 @@
+:root {
+  /* Primary Accents (Yellows) */
+  --primary: oklch(0.86 0.12 92);
+  --accent-warm: oklch(0.88 0.13 92);
+  --accent-soft: oklch(0.94 0.07 92);
+  --accent-secondary: oklch(0.92 0.06 92);
+
+  /* Neutrals (Cream & Off-White) */
+  --background: oklch(0.985 0.012 95);
+  --card: oklch(0.995 0.008 95);
+  --cream: oklch(0.97 0.022 92);
+  --muted-bg: oklch(0.95 0.018 90);
+  --secondary-surface: oklch(0.95 0.025 90);
+  --border: oklch(0.9 0.025 90);
+
+  /* Text Colors */
+  --text-headline: oklch(0.22 0.02 60);
+  --text-body: oklch(0.25 0.02 60);
+  --text-muted: oklch(0.48 0.025 65);
+
+  --font-body: "Switzer", sans-serif;
+  --font-display: "Boska", sans-serif;
+}
