@@ -6,6 +6,9 @@
   align-items: center;
   max-width: 1800px;
   margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevents horizontal scroll on desktop */
+
   .marquee-list {
     display: flex;
     align-items: center;
@@ -14,16 +17,25 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    gap: 2rem;
   }
 
+  /* ── Mobile Animation ─────────────────────────────── */
   @media (max-width: 768px) {
-    padding: 1rem 1rem;
+    padding: 1.5rem 0; /* Remove side padding so animation touches edges */
 
     .marquee-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem 0.5rem;
-      justify-items: start;
+      display: flex; /* Switch back to flex for horizontal scroll */
+      width: max-content; /* Allow list to be wider than screen */
+      gap: 2rem;
+
+      /* The Animation */
+      animation: scroll-left 25s linear infinite;
+
+      /* Pause on hover/touch for readability */
+      &:hover {
+        animation-play-state: paused;
+      }
     }
   }
 
@@ -33,24 +45,41 @@
     gap: 0.55rem;
     color: var(--text-muted);
     opacity: 0.55;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0; /* Prevent items from squishing during animation */
+
+    &:hover {
+      opacity: 1;
+    }
 
     svg {
       width: 18px;
       height: 18px;
       flex-shrink: 0;
       fill: none;
-      stroke: var(--text-muted);
+      stroke: currentColor;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
     span {
-      font-family: var(--font-body);
-      font-size: 0.78rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      white-space: nowrap;
+      white-space: nowrap; /* Critical for animation */
     }
+  }
+}
+
+/* ── Keyframes for Scrolling ─────────────────────────────── */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move left by 50% because we will duplicate the content in JSX */
+    transform: translateX(-50%);
   }
 }
