@@ -7,12 +7,12 @@ const Hero = () => {
   const { ref } = useHeroAnimation();
 
   return (
-    <section className="hero" id="hero">
+    <section className="hero" id="hero" aria-labelledby="hero-heading">
       <div className="hero-container" ref={ref}>
-        <span className="hero-audience">
+        <span className="hero-audience" role="text">
           For women tired of guessing, performing, or feeling invisible.
         </span>
-        <h1 className="hero-title">
+        <h1 className="hero-title" id="hero-heading">
           Be the woman he can&apos;t
           <span className="forget-highlight">
             forget.
@@ -32,7 +32,11 @@ const Hero = () => {
           interested.
         </p>
         <div className="hero-cta">
-          <a href="#pricing" className="primary-btn">
+          <a
+            href="#pricing"
+            className="primary-btn"
+            aria-label="Get instant access to the guide"
+          >
             Get Instant Access
           </a>
           <span className="cta-meta">
@@ -42,11 +46,12 @@ const Hero = () => {
         <div className="hero-image-wrapper">
           <Image
             src="/images/woman.png"
-            alt="Letter"
+            alt="Confident woman in white blouse, arms crossed, holding glasses — representing grounded presence and self-assured femininity"
             width={800}
             height={800}
             className="girl-image"
             priority
+            loading="eager"
           />
         </div>
       </div>
